@@ -34,6 +34,26 @@ function renderMenu(filter = "semua") {
   `).join("");
 }
 
+// ===== Ulasan pelanggan (berjalan otomatis, loop tanpa putus) =====
+const reviewTrack = document.getElementById("reviewTrack");
+const jumlahReview = 10; // sesuai jumlah gambar di assets/review/
+
+function buatKartuReview(nomor, salinan) {
+  return `
+    <div class="review-card${salinan ? " review-card--clone" : ""}"${salinan ? ' aria-hidden="true"' : ""}>
+      <div class="review-card__box">
+        <img src="assets/review/${nomor}.png" alt="${salinan ? "" : "Ulasan pelanggan " + nomor}">
+      </div>
+    </div>`;
+}
+
+function renderReviews() {
+  const nomor = Array.from({ length: jumlahReview }, (_, i) => i + 1);
+  reviewTrack.innerHTML =
+    nomor.map((n) => buatKartuReview(n, false)).join("") +
+    nomor.map((n) => buatKartuReview(n, true)).join("");
+}
+
 // ===== Filter kategori =====
 menuFilters.addEventListener("click", (e) => {
   const tombol = e.target.closest(".chip");
@@ -64,3 +84,4 @@ window.addEventListener("scroll", () => {
 document.getElementById("year").textContent = new Date().getFullYear();
 
 renderMenu();
+renderReviews();
