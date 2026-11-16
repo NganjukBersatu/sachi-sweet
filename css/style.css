@@ -247,8 +247,58 @@ a.hero__badge:hover { background: rgba(255, 255, 255, .95); box-shadow: 0 16px 3
 .menu-card__body p { font-size: .95rem; }
 .menu-card__price { display: block; margin-top: .6rem; font-weight: 700; }
 
+/* ===== Ulasan ===== */
+.reviews {
+  background-color: var(--pink-2); /* warna cadangan jika gambar gagal dimuat */
+  background-image: url("../assets/bg1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+.reviews__head { padding: 0 5vw; max-width: 1100px; margin: 0 auto; }
+.reviews__note { font-family: var(--font-display); font-style: italic; }
+
+.reviews__viewport { margin-top: 2rem; overflow: hidden; }
+.reviews__track {
+  display: flex;
+  width: max-content;
+  animation: reviews-scroll 90s linear infinite;
+}
+.reviews__viewport:hover .reviews__track { animation-play-state: paused; }
+
+/* 3 kolom per layar, kotak tanpa radius */
+.review-card { flex: 0 0 calc(100vw / 3); padding: 0 .6rem; }
+.review-card__box {
+  height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+  background: var(--blush);
+  border: 1px solid var(--rose);
+  border-radius: 0;
+}
+.review-card__box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+/* Berjalan ke kiri; set kedua diulang sehingga loop tanpa lompat */
+@keyframes reviews-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 760px) {
+  .review-card { flex-basis: 80vw; }
+  .review-card__box { height: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews__viewport { overflow-x: auto; }
+  .reviews__track { animation: none; }
+  .review-card--clone { display: none; }
+}
+
 /* ===== Kontak ===== */
-.contact { background: var(--cream-1); max-width: none; }
+.contact { background: var(--blush); max-width: none; }
 .contact > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
 .contact__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
 .social { display: flex; flex-direction: column; gap: .3rem; margin-top: .5rem; }

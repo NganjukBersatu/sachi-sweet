@@ -105,6 +105,27 @@ function tampilkanMenu(filter) {
     });
 }
 
+// ===== Ulasan pelanggan (berjalan otomatis, loop tanpa putus) =====
+const reviewTrack = document.getElementById("reviewTrack");
+const jumlahReview = 10; // sesuai jumlah gambar di assets/review/
+
+function buatKartuReview(nomor, salinan) {
+  return `
+    <div class="review-card${salinan ? " review-card--clone" : ""}"${salinan ? ' aria-hidden="true"' : ""}>
+      <div class="review-card__box">
+        <img src="assets/review/${nomor}.png" alt="${salinan ? "" : "Ulasan pelanggan " + nomor}">
+      </div>
+    </div>`;
+}
+
+function renderReviews() {
+  const nomor = Array.from({ length: jumlahReview }, (_, i) => i + 1);
+  reviewTrack.innerHTML =
+    nomor.map((n) => buatKartuReview(n, false)).join("") +
+    nomor.map((n) => buatKartuReview(n, true)).join("");
+}
+
+// ===== Filter kategori =====
 menuFilters.addEventListener("click", (e) => {
   const tombol = e.target.closest(".chip");
   if (!tombol) return;
@@ -132,8 +153,5 @@ if ("IntersectionObserver" in window) {
     });
   }, { threshold: 0.15 });
 
-  revealTargets.forEach(el => revealObserver.observe(el));
-} else {
-  // Browser lama: langsung tampilkan semuanya
-  revealTargets.forEach(el => el.classList.add("is-visible"));
-}
+renderMenu();
+renderReviews();
