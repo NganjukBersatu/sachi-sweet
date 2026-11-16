@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sachi Sweet | Cafe & Dessert</title>
+  <meta name="description" content="Sachi Sweet, cafe dengan kue, minuman, dan dessert buatan sendiri.">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+
+  <!-- Menghubungkan CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <a href="#beranda" class="logo">Sachi Sweet</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu navigasi" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#tentang">Tentang</a>
+      <a href="#menu">Menu</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero__text">
+        <h1>Manis yang bikin betah duduk lama.</h1>
+        <p>Kue, minuman, dan dessert buatan sendiri setiap hari di Sachi Sweet.</p>
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--primary">Lihat menu</a>
+          <a href="#kontak" class="btn btn--ghost">Kunjungi kami</a>
+        </div>
+      </div>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="blob blob--1"></div>
+        <div class="blob blob--2"></div>
+        <div class="blob blob--3"></div>
+      </div>
+    </section>
+
+    <section class="section about" id="tentang">
+      <h2>Tentang Sachi Sweet</h2>
+      <p>Sachi Sweet adalah cafe yang menyajikan dessert dan minuman dengan bahan pilihan. Ganti paragraf ini dengan cerita singkat tentang cafe Anda.</p>
+      <ul class="highlights">
+        <li><strong>Dibuat segar</strong> Dipanggang dan disiapkan setiap hari.</li>
+        <li><strong>Tempat nyaman</strong> Cocok untuk santai, belajar, atau bertemu teman.</li>
+        <li><strong>Harga ramah</strong> Menu terjangkau untuk semua kalangan.</li>
+      </ul>
+    </section>
+
+    <section class="section menu" id="menu">
+      <h2>Menu Favorit</h2>
+      <div class="menu__filters" id="menuFilters">
+        <button class="chip is-active" data-filter="semua">Semua</button>
+        <button class="chip" data-filter="dessert">Dessert</button>
+        <button class="chip" data-filter="minuman">Minuman</button>
+      </div>
+      <div class="menu__grid" id="menuGrid"></div>
+    </section>
+
+    <section class="section contact" id="kontak">
+      <h2>Kunjungi Kami</h2>
+      <div class="contact__grid">
+        <div>
+          <h3>Alamat</h3>
+          <p>Jl. Contoh No. 1, Kota Anda</p>
+        </div>
+        <div>
+          <h3>Jam buka</h3>
+          <p>Senin - Minggu<br>10.00 - 22.00</p>
+        </div>
+        <div>
+          <h3>Hubungi</h3>
+          <p>0812-0000-0000<br>@sachisweet</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Sachi Sweet. Semua hak dilindungi.</p>
+  </footer>
+
+  <!-- Menghubungkan JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
