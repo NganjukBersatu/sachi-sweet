@@ -78,10 +78,25 @@ h3 { font-size: 1.15rem; margin-bottom: .3rem; }
 
 /* ===== Section umum ===== */
 .section { padding: 5rem 5vw; max-width: 1100px; margin: 0 auto; }
-.about p { max-width: 62ch; }
-.highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
-.highlights li { background: var(--cream-1); border-radius: var(--radius); padding: 1.4rem; }
-.highlights strong { display: block; font-family: var(--font-display); font-size: 1.15rem; margin-bottom: .2rem; }
+
+/* ===== Tentang Sachi Sweet ===== */
+.about { --gold: #C9A24A; --gold-dark: #8A6A1F; }
+.about__grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2.5rem; align-items: center; }
+.about__eyebrow { font-size: .8rem; letter-spacing: .08em; color: var(--gold-dark); margin-bottom: .4rem; }
+.about__title::after { content: ""; display: block; width: 48px; height: 2px; background: var(--gold); margin-top: .8rem; }
+.about__subtitle { font-weight: 700; margin-bottom: .6rem; }
+.about__text { max-width: 62ch; margin-bottom: .8rem; }
+.about__todo { display: inline-block; margin-bottom: 1.4rem; padding: .1rem .7rem; border-radius: 6px; background: var(--cream-2); color: var(--gold-dark); font-size: .8rem; }
+.about__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.about__logo { padding: 1.4rem; display: grid; place-items: center; background: #fff; border: 1.5px solid var(--gold); border-radius: var(--radius); }
+.about__logo img { display: block; width: 100%; max-width: 260px; height: auto; border-radius: 8px; }
+
+.about__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.about__card { display: flex; flex-direction: column; gap: .2rem; background: var(--cream-1); border-radius: var(--radius); padding: 1.4rem; transition: transform .2s; }
+.about__card:hover { transform: translateY(-3px); }
+.about__card strong { font-family: var(--font-display); font-size: 1.15rem; }
+.about__icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: .5rem; border-radius: 50%; background: var(--cream-2); color: var(--gold-dark); }
 
 /* ===== Menu ===== */
 .menu__filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; }
@@ -118,6 +133,8 @@ h3 { font-size: 1.15rem; margin-bottom: .3rem; }
   .nav a { padding: 1rem 5vw; }
   .hero { grid-template-columns: 1fr; padding-top: 3rem; min-height: auto; }
   .hero__visual { max-width: 280px; }
+  .about__grid { grid-template-columns: 1fr; }
+  .about__logo { width: 100%; max-width: 320px; justify-self: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
