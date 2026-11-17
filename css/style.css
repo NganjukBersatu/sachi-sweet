@@ -226,10 +226,25 @@ a.hero__badge:hover { background: rgba(255, 255, 255, .95); box-shadow: 0 16px 3
 
 /* ===== Section umum ===== */
 .section { padding: 5rem 5vw; max-width: 1100px; margin: 0 auto; }
-.about p { max-width: 62ch; }
-.highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2rem; }
-.highlights li { background: var(--cream-1); border-radius: var(--radius); padding: 1.4rem; }
-.highlights strong { display: block; font-family: var(--font-display); font-size: 1.15rem; margin-bottom: .2rem; }
+
+/* ===== Tentang Sachi Sweet ===== */
+.about { --gold: #C9A24A; --gold-dark: #8A6A1F; }
+.about__grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2.5rem; align-items: center; }
+.about__eyebrow { font-size: .8rem; letter-spacing: .08em; color: var(--gold-dark); margin-bottom: .4rem; }
+.about__title::after { content: ""; display: block; width: 48px; height: 2px; background: var(--gold); margin-top: .8rem; }
+.about__subtitle { font-weight: 700; margin-bottom: .6rem; }
+.about__text { max-width: 62ch; margin-bottom: .8rem; }
+.about__todo { display: inline-block; margin-bottom: 1.4rem; padding: .1rem .7rem; border-radius: 6px; background: var(--cream-2); color: var(--gold-dark); font-size: .8rem; }
+.about__actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.about__logo { padding: 1.4rem; display: grid; place-items: center; background: #fff; border: 1.5px solid var(--gold); border-radius: var(--radius); }
+.about__logo img { display: block; width: 100%; max-width: 260px; height: auto; border-radius: 8px; }
+
+.about__cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.about__card { display: flex; flex-direction: column; gap: .2rem; background: var(--cream-1); border-radius: var(--radius); padding: 1.4rem; transition: transform .2s; }
+.about__card:hover { transform: translateY(-3px); }
+.about__card strong { font-family: var(--font-display); font-size: 1.15rem; }
+.about__icon { width: 44px; height: 44px; display: grid; place-items: center; margin-bottom: .5rem; border-radius: 50%; background: var(--cream-2); color: var(--gold-dark); }
 
 /* ===== Menu ===== */
 .menu__filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; }
@@ -283,29 +298,12 @@ a.hero__badge:hover { background: rgba(255, 255, 255, .95); box-shadow: 0 16px 3
   .nav.is-open { display: flex; }
   .nav a { padding: 1rem var(--gutter); }
   .hero { grid-template-columns: 1fr; padding-top: 3rem; min-height: auto; }
-  .hero__visual { max-width: 340px; }
-  .hero__badge--1 { left: 0; }
-  .hero__badge--2 { right: 0; }
-
-  /* Kartu menu: 2 kolom dan lebih kecil di HP */
-  .menu__grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
-  .menu-card { border-radius: 16px; }
-  .menu-card__body { padding: .7rem .8rem .9rem; }
-  .menu-card__body h3 { font-size: .95rem; margin-bottom: .15rem; }
-  .menu-card__body p { font-size: .8rem; line-height: 1.4; }
-  .menu-card__price { margin-top: .4rem; font-size: .85rem; }
-
-  /* Kartu menu muncul bergantian: kolom kiri dari kiri, kolom kanan dari kanan */
-  .menu { overflow-x: clip; }
-  .menu__grid.reveal { opacity: 1; transform: none; transition: none; }
-  .menu-card--anim:not(.is-visible) { opacity: 0; }
-  .menu-card--anim.is-visible:nth-child(odd) { animation: slide-from-left .6s cubic-bezier(.2, .7, .2, 1) backwards; }
-  .menu-card--anim.is-visible:nth-child(even) { animation: slide-from-right .6s cubic-bezier(.2, .7, .2, 1) backwards; }
+  .hero__visual { max-width: 280px; }
+  .about__grid { grid-template-columns: 1fr; }
+  .about__logo { width: 100%; max-width: 320px; justify-self: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
-  .hero__text h1 em::after { transform: none; }
+  * { transition: none !important; }
 }
